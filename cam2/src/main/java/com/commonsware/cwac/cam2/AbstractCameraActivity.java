@@ -417,6 +417,7 @@ abstract public class AbstractCameraActivity extends Activity {
       new CameraSelectionCriteria.Builder()
         .facing(facing)
         .facingExactMatch(match)
+        .isVideo(isVideo())
         .build();
     CameraEngine.ID forcedEngineId=
       (CameraEngine.ID)getIntent().getSerializableExtra(EXTRA_FORCE_ENGINE);
@@ -458,6 +459,10 @@ abstract public class AbstractCameraActivity extends Activity {
       setRequestedOrientation(
           SCREEN_ORIENTATION_SENSOR_PORTRAIT);
     }
+  }
+
+  protected Intent buildResultIntent() {
+    return(new Intent());
   }
 
   @TargetApi(23)

@@ -1,6 +1,10 @@
 CWAC-Cam2: Taking Pictures. Made (Somewhat) Sensible. Again.
 ============================================================
 
+**This library is discontinued and deprecated.**
+New projects should look elsewhere, and existing projects should plan
+on migrating to something else.
+
 Taking pictures using a third-party app is fairly straightforward,
 using `ACTION_IMAGE_CAPTURE` and `ACTION_VIDEO_CAPTURE`. However, different camera
 apps have slightly different behavior, meaning that you are prone to getting
@@ -42,7 +46,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.commonsware.cwac:cam2:0.7.4'
+    compile 'com.commonsware.cwac:cam2:0.7.6'
 }
 ```
 
@@ -123,15 +127,11 @@ It is recommended that you not obfuscate the classes in CWAC libraries:
 -keep class com.commonsware.cwac.** { *; }
 ```
 
-If you feel that obfuscating open source code makes sense,
-at minimum you will need to employ
-[appropriate rules](https://github.com/krschultz/android-proguard-snippets/blob/master/libraries/proguard-eventbus.pro)
-to prevent greenrobot's EventBus code, and this library's
-use of it, from being obfuscated.
+You should also not obfuscate the greenrobot EventBus classes; [here is a sample set of rules](https://github.com/krschultz/android-proguard-snippets/blob/master/libraries/proguard-eventbus-3.pro).
 
 Version
 -------
-This is version v0.7.4 of this library, which means it is coming
+This is version v0.7.6 of this library, which means it is coming
 along slowly.
 
 Demo
@@ -188,6 +188,7 @@ Do not ask for help via social media.
 
 Release Notes
 -------------
+- v0.7.6: added [a configuration change fix](https://github.com/commonsguy/cwac-cam2/issues/314)
 - v0.7.5: added `showRuleOfThirdsGrid()` to show [a "rule of thirds" grid overlay](https://github.com/commonsguy/cwac-cam2/issues/12) 
 - v0.7.4: [added timer option](https://github.com/commonsguy/cwac-cam2/issues/297) for taking pictures 
 - v0.7.3: fixed issues surrounding LG devices ([#295](https://github.com/commonsguy/cwac-cam2/issues/295), [#299](https://github.com/commonsguy/cwac-cam2/issues/299)) and 6.0 emulator ([#293](https://github.com/commonsguy/cwac-cam2/issues/293))
